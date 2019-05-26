@@ -1,0 +1,95 @@
+#header
+  height: 60vh
+  background-image : url('/assets//img/gunung.jpg')
+  background-size: cover
+
+  .highlight
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: 400px
+    text-align: center
+
+    h1
+      font-family: "Poppins", sans-serif
+
+#berita
+  background-color : #fafafa
+  padding: 50px 0px
+
+  h1,h4
+    text-align: center
+
+  .card-list
+    display: flex
+    flex-flow: row wrap
+
+    a
+      color: #000000
+      text-decoration: none
+
+    .card
+      margin: 10px
+      background-color: white
+      width: calc( 33.333% - 20px)
+      position: relative
+
+      .kategori
+        margin-bottom: 15px
+
+        span
+          border: 1px solid blue
+          border-radius: 10px
+          padding: 3px 10px
+          margin-bottom: 40px
+
+      .card-overlay
+        background-color: rgba(244, 227, 9, 0.44)
+        z-index: 10
+        min-height: 200px
+        max-height: 200px
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        transition: .3s ease
+
+      img
+        min-height: 200px
+        max-height: 200px
+
+      .more
+        text-align: center
+        border: 2px solid #FFDA44
+        transition: .3s ease
+
+        a
+          color: #000000
+
+    .card:hover
+      cursor: pointer
+    .card:hover .more
+      background-color: #FFDA44
+
+    .card:hover .card-overlay
+      opacity: 0
+      cursor: pointer
+
+#kategori
+  background-color: #ffffff
+  padding: 50px
+
+  .kotak
+    text-align: center
+    background: #fafafa
+    padding: 10px
+    margin: 5px 0px
+
+    img
+      width: 50%
+      height: 50%
+
+  .kotak:hover
+    background: rgba(#f2cf06, 0.54)
+    cursor: pointer

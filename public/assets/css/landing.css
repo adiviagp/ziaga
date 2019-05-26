@@ -1,0 +1,93 @@
+#header {
+  height: 60vh;
+  background-image: url("/assets//img/gunung.jpg");
+  background-size: cover; }
+  #header .highlight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    text-align: center; }
+    #header .highlight h1 {
+      font-family: "Poppins", sans-serif; }
+
+#berita {
+  background-color: #fafafa;
+  padding: 50px 0px; }
+  #berita h1, #berita h4 {
+    text-align: center; }
+  #berita .card-list {
+    display: flex;
+    flex-flow: row wrap; }
+    #berita .card-list a {
+      color: #000000;
+      text-decoration: none; }
+    #berita .card-list .card {
+      margin: 10px;
+      background-color: white;
+      width: calc( 33.333% - 20px);
+      position: relative; }
+
+      @media (max-width: 768px) {
+        #berita .card-list .card {
+          width: calc( 50% - 20px);
+        }
+      }
+
+    @media (max-width: 540px) {
+      #berita .card-list .card {
+        width: calc( 100% - 20px);
+      }
+    }
+
+      #berita .card-list .card .kategori {
+        margin-bottom: 15px; }
+        #berita .card-list .card .kategori span {
+          border: 1px solid blue;
+          border-radius: 10px;
+          padding: 3px 10px;
+          margin-bottom: 40px; }
+      #berita .card-list .card .card-overlay {
+        background-color: rgba(244, 227, 9, 0.44);
+        z-index: 10;
+        min-height: 200px;
+        max-height: 200px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: 0.3s ease; }
+      #berita .card-list .card img {
+        min-height: 200px;
+        max-height: 200px; }
+      #berita .card-list .card .more {
+        text-align: center;
+        border: 2px solid #FFDA44;
+        transition: 0.3s ease; }
+        #berita .card-list .card .more a {
+          color: #000000; }
+    #berita .card-list .card:hover {
+      cursor: pointer; }
+    #berita .card-list .card:hover .more {
+      background-color: #FFDA44; }
+    #berita .card-list .card:hover .card-overlay {
+      opacity: 0;
+      cursor: pointer; }
+
+#kategori {
+  background-color: #ffffff;
+  padding: 50px; }
+  #kategori .kotak {
+    text-align: center;
+    background: #fafafa;
+    padding: 10px;
+    margin: 5px 0px; }
+    #kategori .kotak img {
+      width: 50%;
+      height: 50%; }
+  #kategori .kotak:hover {
+    background: rgba(242, 207, 6, 0.54);
+    cursor: pointer; }
+
+/*# sourceMappingURL=landing.css.map */
