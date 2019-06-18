@@ -18,7 +18,7 @@ class bnpbController extends Controller
     $label = DB::table('contents')
     ->join('categories', 'contents.category_id','=','categories.id')
     ->where('contents.status_id',1)
-    ->select('kategori', DB::raw('count(category_id) as total'))
+    ->select('kategori as name', DB::raw('count(category_id) as y'))
     ->groupBy('kategori')
     ->get();
     return view('dashboard.BNPB.index', compact('archive','post','trash','label'));

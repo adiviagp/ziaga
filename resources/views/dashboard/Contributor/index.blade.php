@@ -51,15 +51,17 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
-              <h4 class="card-title ">Total Post Berdasarkan Jenis Bencana</h4>
+              <h4 class="card-title ">Total Artikel Berdasarkan Jenis Bencana</h4>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table id="post" class="table table-striped table-bordered">
 
                   <body>
-                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                    <div id="container" style="width: 100%; height: 400px; margin: 0 auto;"></div>
                   </body>
 
                 </table>
@@ -172,30 +174,47 @@
   </div>
 </div>
 
-
 <?php
-  $dataPosts = array();
-  foreach ($label as $query) {
-    $dataPosts[]=array("label"=>$query->kategori,"y"=>$query->total);
-  }
+foreach ($label as $query) {$dataLabel[]=$query;}
 ?>
+
 <script>
-  window.onload = function () {
-  var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    exportEnabled: true,
-    data: [{
-      type: "pie",
-      showInLegend: true,
-      legendText: "{label}",
-      indexLabelFontSize: 16,
-      indexLabel: "{label} - #percent%",
-      yValueFormatString: "#,# Posts",
-      dataPoints: <?php echo json_encode($dataPosts, JSON_NUMERIC_CHECK); ?>
-    }]
+  Highcharts.chart('container', {
+      chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: 'pie',
+          style: {
+            fontFamily: 'Trebuchet MS, Arial'
+          }
+      },
+      title: {
+          text: 'Total Artikel Berdasarkan Jenis Bencana',
+      },
+      tooltip: {
+          pointFormat: '<b>{point.y} {series.name}</b>'
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              showInLegend: true,
+              dataLabels: {
+                  enabled: true,
+                  format: '{point.y} Artikel ({point.percentage:.1f}%)',
+                  style: {
+                      color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                  }
+              }
+          }
+      },
+      series: [{
+          name: 'Artikel',
+          colorByPoint: true,
+          data: <?php echo json_encode($dataLabel, JSON_NUMERIC_CHECK); ?>
+      }]
   });
-  chart.render();
-  }
 </script>
 
 @endsection

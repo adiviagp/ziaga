@@ -46,7 +46,8 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+
+    <!-- <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -58,8 +59,10 @@
                 <table id="post" class="table table-striped table-bordered">
 
                   <body>
-                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                    <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
                   </body>
 
                 </table>
@@ -68,9 +71,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-warning">
@@ -79,19 +82,13 @@
                 <ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
                     <a class="nav-link active" href="#posts" data-toggle="tab">
-                      <i class="material-icons">border_color</i> Post
-                      <div cla  ss="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#archive" data-toggle="tab">
-                      <i class="material-icons">book</i> Archive
+                      <i class="material-icons">border_color</i> Total Artikel Berdasarkan Jenis Bencana
                       <div class="ripple-container"></div>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#trash" data-toggle="tab">
-                      <i class="material-icons">delete</i> Trash
+                    <a class="nav-link" href="#archive" data-toggle="tab">
+                      <i class="material-icons">book</i> Viewer Counter per Bulan
                       <div class="ripple-container"></div>
                     </a>
                   </li>
@@ -103,106 +100,120 @@
             <div class="tab-content">
               <div class="tab-pane active" id="posts">
                 <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>Bencana Gunung Meletus di desa sukaBencana</td>
-                      <td class="td-action text-right">
-                        <a href="{{url('/gunung-meletus.html')}}" target="_blank" rel="tooltip" title="View Post" class="btn btn-success btn-link btn-sm">
-                          <i class="material-icons">visibility</i>
-                        </a>
-                        <a href="{{url('/dashboard/contributor/posts/2/edit')}}" rel="tooltip" title="Edit Post" class="btn btn-link btn-sm">
-                          <i class="material-icons">edit</i>
-                        </a>
-                        <button type="button" rel="tooltip" title="Trash" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <body>
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                    <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+                  </body>
                 </table>
                 <div class="more">
-                  <a href="{{url('/dashboard/contributor/posts')}}">See All Posts</a>
+                  <a href="{{url('/bnpb/posts')}}">See All Posts</a>
                 </div>
               </div>
               <div class="tab-pane" id="archive">
                 <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>Banjir di Sungai Nil mengakibatkan rumah warga hanyut</td>
-                      <td class="td-action text-right">
-                        <a href="{{url('/dashboard/contributor/posts/2/edit')}}" rel="tooltip" title="Edit Post" class="btn btn-link btn-sm">
-                          <i class="material-icons">edit</i>
-                        </a>
-                        <button type="button" rel="tooltip" title="Trash" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <body>
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                    <div id="chart2" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+                  </body>
                 </table>
                 <div class="more">
-                  <a href="{{url('/dashboard/contributor/archives')}}">See All Archives</a>
-                </div>
-              </div>
-              <div class="tab-pane" id="trash">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>Gunung Wacana Kembali Berstatus Siaga 2</td>
-                      <td class="td-actions text-right">
-                        <button type="button" rel="tooltip" title="Restore to Archive" class="btn btn-primary btn-link btn-sm">
-                          <i class="material-icons">undo</i>
-                        </button>
-                        <button type="button" rel="tooltip" title="Remove Permanently" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="more">
-                  <a href="{{url('/dashboard/contributor/trash')}}">See All Trash</a>
+                  <a href="{{url('/bnpb/posts')}}">See All Posts</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>
 
-
 <?php
-  $dataPosts = array();
-  foreach ($label as $query) {
-    $dataPosts[]=array("label"=>$query->kategori,"y"=>$query->total);
-  }
+foreach ($label as $query) {$dataLabel[]=$query;}
 ?>
+
 <script>
-  window.onload = function () {
-  var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    exportEnabled: true,
-    title:{
-        text: "Total Artikel Berdasarkan Jenis Bencana",
-        fontFamily: "Trebuchet MS, Arial",
-        fontWeight: "bold",
-    },
-    data: [{
-      type: "pie",
-      showInLegend: true,
-      legendText: "{label}",
-      indexLabelFontSize: 16,
-      indexLabelMaxWidth: 70,
-      indexLabelWrap: true,
-      indexLabel: "{y} (#percent%)",
-      yValueFormatString: "####,#### Artikel",
-      dataPoints: <?php echo json_encode($dataPosts, JSON_NUMERIC_CHECK); ?>
-    }]
+  Highcharts.chart('chart1', {
+      chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: 'pie',
+          style: {
+            fontFamily: 'Trebuchet MS, Arial'
+          }
+      },
+      title: {
+          text: 'Total Artikel Berdasarkan Jenis Bencana',
+      },
+      tooltip: {
+          pointFormat: '<b>{point.y} {series.name}</b>'
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              showInLegend: true,
+              dataLabels: {
+                  enabled: true,
+                  format: '{point.y} Artikel ({point.percentage:.1f}%)',
+                  style: {
+                      color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                  }
+              }
+          }
+      },
+      series: [{
+          name: 'Artikel',
+          colorByPoint: true,
+          data: <?php echo json_encode($dataLabel, JSON_NUMERIC_CHECK); ?>
+      }]
   });
-  chart.render();
-  }
+  </script>
+  <script>
+  Highcharts.chart('chart2', {
+    chart: {
+        type: 'column',
+        style: {
+          fontFamily: 'Trebuchet MS, Arial'
+        }
+    },
+    title: {
+        text: 'Viewer Counter per Bulan'
+    },
+    xAxis: {
+        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Total fruit consumption'
+        }
+    },
+    tooltip: {
+        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+    },
+    plotOptions: {
+        column: {
+            stacking: 'percent'
+        }
+    },
+    series: [{
+        name: 'John',
+        data: [5, 3, 4, 7, 2]
+    }, {
+        name: 'Jane',
+        data: [2, 2, 3, 2, 1]
+    }, {
+        name: 'Joe',
+        data: [3, 4, 4, 2, 5]
+    }]
+});
 </script>
 
 @endsection
