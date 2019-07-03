@@ -8,7 +8,7 @@
 				<div class="container">
 					<div class="video-content">
 						<div class="video-desc">
-							<h1 class="h1 text-white text-uppercase">{{$content -> title }}</h1>
+							<h1 class="h1 text-white text-uppercase">{{$content -> title }} | <a href="http://example.com/article1.html#disqus_thread" data-disqus-identifier=" {{$content -> id }}">First article</a></h1>
 						<a href="{{ url('/profile/'.$content -> user -> id )}}">	<h4 class="text-white">Posted By {{$content -> user -> namaDepan}} {{$content -> user -> namaBelakang}}</h4></a>
 						</div>
 					</div>
@@ -40,10 +40,13 @@
           <h2>Komentar</h2>
           <div id="disqus_thread"></div>
           <script>
+					var disqus_config = function () {
+						 this.page.identifier = '{{ $content -> id }}';
+				 };
           (function() { // DON'T EDIT BELOW THIS LINE
           var d = document, s = d.createElement('script');
-          s.src = 'https://ziagawib.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
+          s.src = 'https://ziaga-whyfu.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', + new Date());
           (d.head || d.body).appendChild(s);
           })();
           </script>
@@ -88,4 +91,5 @@ if (scroll >= 50) {
 }
 });
 </script>
+<script id="dsq-count-scr" src="//ziaga-whyfu.disqus.com/count.js" async></script>
 @endsection

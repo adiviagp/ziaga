@@ -100,12 +100,9 @@
             <div class="tab-content">
               <div class="tab-pane active" id="posts">
                 <table class="table">
-                  <body>
-                    <script src="https://code.highcharts.com/highcharts.js"></script>
-                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
                     <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
-                  </body>
+
                 </table>
                 <div class="more">
                   <a href="{{url('/bnpb/posts')}}">See All Posts</a>
@@ -113,13 +110,39 @@
               </div>
               <div class="tab-pane" id="archive">
                 <table class="table">
-                  <body>
-                    <script src="https://code.highcharts.com/highcharts.js"></script>
-                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-                    <div id="chart2" style="width: 100%; height: 400px; margin: 0 auto;"></div>
-                  </body>
+
+                    <div id="plain" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+
                 </table>
+
+                                <table id="post" class="table table-striped table-bordered">
+                                  <thead class="text-primary">
+                                    <th>
+                                      Title
+                                    </th>
+                                    <th>
+                                      Category
+                                    </th>
+                                    <th>
+                                      Views
+                                    </th>
+                                  </thead>
+                                  <tbody>
+                                    @foreach($contentt as $content)
+                                    <tr>
+                                      <td>
+                                        <p>{{$content -> title}}</p>
+                                      </td>
+                                      <td>
+                                        <p>{{$content -> category -> kategori}}</p>
+                                      </td>
+                                      <td class="td-action" style="display:flex">
+                                          {{ views($content)->count() }} view
+                                      </td>
+                                    </tr>
+                                    @endforeach
+                                  </tbody>
+                                </table>
                 <div class="more">
                   <a href="{{url('/bnpb/posts')}}">See All Posts</a>
                 </div>
@@ -136,6 +159,12 @@
 foreach ($label as $query) {$dataLabel[]=$query;}
 ?>
 
+<script src="{{asset('/assets/js/highcharts.js')}}"></script>
+<script src="{{asset('/assets/js/export-data.js')}}"></script>
+<script src="{{asset('/assets/js/exporting.js')}}"></script>
+
+
+</script>
 <script>
   Highcharts.chart('chart1', {
       chart: {
@@ -175,45 +204,43 @@ foreach ($label as $query) {$dataLabel[]=$query;}
   });
   </script>
   <script>
-  Highcharts.chart('chart2', {
-    chart: {
-        type: 'column',
-        style: {
-          fontFamily: 'Trebuchet MS, Arial'
-        }
-    },
-    title: {
-        text: 'Viewer Counter per Bulan'
-    },
-    xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Total fruit consumption'
-        }
-    },
-    tooltip: {
-        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
-        shared: true
-    },
-    plotOptions: {
-        column: {
-            stacking: 'percent'
-        }
-    },
-    series: [{
-        name: 'John',
-        data: [5, 3, 4, 7, 2]
-    }, {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1]
-    }, {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5]
-    }]
+
+  var chart = Highcharts.chart('plain', {
+
+  title: {
+      text: 'Jumlah Pembaca Artikel'
+  },
+
+  subtitle: {
+      text: ''
+  },
+
+  xAxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  },
+
+  series: [{
+      type: 'column',
+      colorByPoint: true,
+      data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+      showInLegend: false
+  }]
+
 });
-</script>
+
+
+$('#plain').click(function () {
+  chart.update({
+      chart: {
+          inverted: false,
+          polar: false
+      },
+      subtitle: {
+          text: 'Plain'
+      }
+  });
+});
+
+  </script>
 
 @endsection

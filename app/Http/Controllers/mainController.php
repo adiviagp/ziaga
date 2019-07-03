@@ -21,9 +21,11 @@ class mainController extends Controller
       $category = category::all();
       return view('home.index',compact('content','category'));
     }
-    public function konten($id){
+    public function konten($id, content $content){
       $content = content::find($id);
-      return view('home.post', compact('content'));
+      views($content)->record();
+      $hitung = views($content)->count();
+      return view('home.post', compact('content','hitung'));
     }
     public function kategori($id){
       $konten = content::where('category_id',$id)->get();

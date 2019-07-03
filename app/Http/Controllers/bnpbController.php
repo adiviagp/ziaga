@@ -11,17 +11,19 @@ use DB;
 
 class bnpbController extends Controller
 {
-  public function dashboard(){
+  public function dashboard(content $content){
     $archive = content::where('status_id',0)->count();
     $post = content::where('status_id',1)->count();
     $trash = content::where('status_id',2)->count();
+    $contentt = content::where('status_id',1)->get();
+    $htg = content::all();
     $label = DB::table('contents')
     ->join('categories', 'contents.category_id','=','categories.id')
     ->where('contents.status_id',1)
     ->select('kategori as name', DB::raw('count(category_id) as y'))
     ->groupBy('kategori')
     ->get();
-    return view('dashboard.BNPB.index', compact('archive','post','trash','label'));
+    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentt','htg'));
   }
 
   // Kontributor
