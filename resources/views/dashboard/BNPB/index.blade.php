@@ -86,12 +86,7 @@
                       <div class="ripple-container"></div>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#archive" data-toggle="tab">
-                      <i class="material-icons">book</i> Viewer Counter per Bulan
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
+
                 </ul>
               </div>
             </div>
@@ -108,12 +103,83 @@
                   <a href="{{url('/bnpb/posts')}}">See All Posts</a>
                 </div>
               </div>
-              <div class="tab-pane" id="archive">
-                <table class="table">
 
-                    <div id="plain" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                </table>
+
+      <!--  -->
+
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-warning">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#archive" data-toggle="tab">
+                      <i class="material-icons">book</i> Viewer Counter per Bulan
+
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+
+              <div class="tab-pane active" id="archive">
+
+                <!--  -->
+                <!-- <form action="" method="get">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="date_filter" id="date_filter"/>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" />
+                    </div>
+                </div>
+                </form> -->
+
+                <!--  -->
+
+                    <div id="chartContainer" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+      <!--  -->
+
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-warning">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#archive" data-toggle="tab">
+                      <i class="material-icons">book</i> Viewer Counter per Bulan
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+
+              <div class="tab-pane active" id="archive">
 
                                 <table id="post" class="table table-striped table-bordered">
                                   <thead class="text-primary">
@@ -143,20 +209,28 @@
                                     @endforeach
                                   </tbody>
                                 </table>
-                <div class="more">
-                  <a href="{{url('/bnpb/posts')}}">See All Posts</a>
-                </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!--  -->
     </div>
   </div>
 </div>
 
+
+
+
+
+
 <?php
 foreach ($label as $query) {$dataLabel[]=$query;}
+?>
+<?php
+foreach ($vieww as $queryy) {$dataLabell[]=$queryy;}
 ?>
 
 <script src="{{asset('/assets/js/highcharts.js')}}"></script>
@@ -203,44 +277,51 @@ foreach ($label as $query) {$dataLabel[]=$query;}
       }]
   });
   </script>
-  <script>
+<script>
+window.onload = function () {
 
-  var chart = Highcharts.chart('plain', {
-
-  title: {
-      text: 'Jumlah Pembaca Artikel'
-  },
-
-  subtitle: {
-      text: ''
-  },
-
-  xAxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  },
-
-  series: [{
-      type: 'column',
-      colorByPoint: true,
-      data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-      showInLegend: false
-  }]
-
+var chart = new CanvasJS.Chart("chartContainer", {
+ animationEnabled: true,
+ title:{
+   text: ""
+ },
+ axisX:{
+   valueFormatString: "DD MMM"
+ },
+ axisY: {
+   title: "Jumlah page view",
+   includeZero: false,
+   scaleBreaks: {
+     autoCalculate: true
+   }
+ },
+ data: [{
+   type: "line",
+   xValueFormatString: "DD MMM",
+   color: "#F08080",
+   dataPoints: [
+        @foreach($vieww as $con)
+          { x: new Date({{ $con -> x }}), y:{{ $con -> y }}  },
+        @endforeach
+   ]
+ }]
 });
+chart.render();
 
+}
+</script>
+<script src="{{asset('/assets/js/canvasjs.min.js')}}"></script>
 
-$('#plain').click(function () {
-  chart.update({
-      chart: {
-          inverted: false,
-          polar: false
-      },
-      subtitle: {
-          text: 'Plain'
-      }
-  });
+<script type="text/javascript">
+$(function(){
+    $('#date_filter').datepicker({
+       format: "dd.mm.yyyy",
+       todayBtn: "linked",
+       language: "de"
+    });
 });
+</script>
 
-  </script>
+
 
 @endsection

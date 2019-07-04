@@ -8,6 +8,7 @@ use Auth;
 use App\User;
 use App\category;
 use DB;
+use paginate;
 
 class bnpbController extends Controller
 {
@@ -15,7 +16,7 @@ class bnpbController extends Controller
     $archive = content::where('status_id',0)->count();
     $post = content::where('status_id',1)->count();
     $trash = content::where('status_id',2)->count();
-    $contentt = content::where('status_id',1)->get();
+    $contentt = content::where('status_id',1)->paginate(5);
     $htg = content::all();
     $label = DB::table('contents')
     ->join('categories', 'contents.category_id','=','categories.id')
@@ -23,7 +24,11 @@ class bnpbController extends Controller
     ->select('kategori as name', DB::raw('count(category_id) as y'))
     ->groupBy('kategori')
     ->get();
-    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentt','htg'));
+    $vieww = DB::table('views')
+    ->select(DB::raw('DATE_FORMAT(views.viewed_at, "%Y-%m-%d") as x'), DB::raw('count(*) as y'))
+    ->groupBy('x')
+    ->get();
+    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentt','htg', 'vieww'));
   }
 
   // Kontributor
