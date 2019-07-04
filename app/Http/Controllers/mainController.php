@@ -7,6 +7,7 @@ use App\content;
 use App\category;
 use paginate;
 use App\User;
+use Auth;
 
 class mainController extends Controller
 {
@@ -23,7 +24,11 @@ class mainController extends Controller
     }
     public function konten($id, content $content){
       $content = content::find($id);
-      views($content)->record();
+      $userId = 0;
+      if (Auth::check()) {
+        $userId = Auth::User()->id;
+      }
+      views($content)->overrideVisitor($userId)->record();
       $hitung = views($content)->count();
       return view('home.post', compact('content','hitung'));
     }

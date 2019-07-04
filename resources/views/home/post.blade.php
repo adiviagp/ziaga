@@ -8,7 +8,7 @@
 				<div class="container">
 					<div class="video-content">
 						<div class="video-desc">
-							<h1 class="h1 text-white text-uppercase">{{$content -> title }} | <a href="http://example.com/article1.html#disqus_thread" data-disqus-identifier=" {{$content -> id }}">First article</a></h1>
+							<h1 class="h1 text-white text-uppercase">{{$content -> title }} </h1>
 						<a href="{{ url('/profile/'.$content -> user -> id )}}">	<h4 class="text-white">Posted By {{$content -> user -> namaDepan}} {{$content -> user -> namaBelakang}}</h4></a>
 						</div>
 					</div>

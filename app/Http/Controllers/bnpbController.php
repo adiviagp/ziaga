@@ -16,8 +16,13 @@ class bnpbController extends Controller
     $archive = content::where('status_id',0)->count();
     $post = content::where('status_id',1)->count();
     $trash = content::where('status_id',2)->count();
-    $contentt = content::where('status_id',1)->paginate(5);
-    $htg = content::all();
+    $contentt = DB::table('contents')
+      ->join('views', 'contents.id','=','views.viewable_id')
+      ->join('categories', 'contents.category_id','=','categories.id')
+      ->where('contents.status_id',1)
+      ->select('title', 'kategori', DB::raw('count(viewable_id) as viewer'))
+      ->groupBy('kategori')
+      ->get();
     $label = DB::table('contents')
     ->join('categories', 'contents.category_id','=','categories.id')
     ->where('contents.status_id',1)
@@ -25,10 +30,10 @@ class bnpbController extends Controller
     ->groupBy('kategori')
     ->get();
     $vieww = DB::table('views')
-    ->select(DB::raw('DATE_FORMAT(views.viewed_at, "%Y-%m-%d") as x'), DB::raw('count(*) as y'))
+    ->select(DB::raw('DATE_FORMAT(views.viewed_at, "%Y,%m,%d") as x'), DB::raw('count(*) as y'))
     ->groupBy('x')
     ->get();
-    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentt','htg', 'vieww'));
+    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentt', 'vieww'));
   }
 
   // Kontributor

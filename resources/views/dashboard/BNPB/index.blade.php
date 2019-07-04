@@ -168,7 +168,7 @@
                 <ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
                     <a class="nav-link" href="#archive" data-toggle="tab">
-                      <i class="material-icons">book</i> Viewer Counter per Bulan
+                      <i class="material-icons">book</i> Popular Article
                       <div class="ripple-container"></div>
                     </a>
                   </li>
@@ -200,10 +200,10 @@
                                         <p>{{$content -> title}}</p>
                                       </td>
                                       <td>
-                                        <p>{{$content -> category -> kategori}}</p>
+                                        <p>{{$content -> kategori}}</p>
                                       </td>
-                                      <td class="td-action" style="display:flex">
-                                          {{ views($content)->count() }} view
+                                      <td>
+                                        <p>{{$content -> viewer}}</p>
                                       </td>
                                     </tr>
                                     @endforeach
@@ -286,7 +286,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
    text: ""
  },
  axisX:{
-   valueFormatString: "DD MMM"
+   valueFormatString: "DD MMM",
  },
  axisY: {
    title: "Jumlah page view",
@@ -301,7 +301,9 @@ var chart = new CanvasJS.Chart("chartContainer", {
    color: "#F08080",
    dataPoints: [
         @foreach($vieww as $con)
+
           { x: new Date({{ $con -> x }}), y:{{ $con -> y }}  },
+
         @endforeach
    ]
  }]
