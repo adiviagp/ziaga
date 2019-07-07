@@ -45,6 +45,25 @@
           </div>
         </div>
       </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="featured card card-stats">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="{{asset('/assets/img/tag.svg')}}">
+            </div>
+            <div class="detail text-center">
+              <p class="card-category">Tingkat Kesehatan Artikel</p>
+              <h3 class="card-title">
+                Status Pembaca: {{$statusViewer}}
+                <br>
+                Status Artikel: {{$statusArtikel}}
+                <br>
+                Maka disarankan {{$keputusan}}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- <div class="container-fluid">
@@ -86,7 +105,6 @@
                       <div class="ripple-container"></div>
                     </a>
                   </li>
-
                 </ul>
               </div>
             </div>
@@ -96,7 +114,10 @@
               <div class="tab-pane active" id="posts">
                 <table class="table">
 
-                    <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+                  <script src="https://code.highcharts.com/highcharts.js"></script>
+                  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                  <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
 
                 </table>
                 <div class="more">
@@ -108,10 +129,6 @@
           </div>
         </div>
       </div>
-
-
-      <!--  -->
-
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-warning">
@@ -121,7 +138,6 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#archive" data-toggle="tab">
                       <i class="material-icons">book</i> Viewer Counter per Bulan
-
                       <div class="ripple-container"></div>
                     </a>
                   </li>
@@ -131,10 +147,8 @@
           </div>
           <div class="card-body">
             <div class="tab-content">
-
               <div class="tab-pane active" id="archive">
 
-                <!--  -->
                 <!-- <form action="" method="get">
                 <div class="row">
                     <div class="col-md-4">
@@ -146,20 +160,16 @@
                 </div>
                 </form> -->
 
-                <!--  -->
-
-                    <div id="chartContainer" style="width: 100%; height: 400px; margin: 0 auto;"></div>
-
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                <div id="chartContainer" style="width: 100%; height: 400px; margin: 0 auto;"></div>
 
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!--  -->
-      <!--  -->
-
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-warning">
@@ -178,57 +188,46 @@
           </div>
           <div class="card-body">
             <div class="tab-content">
-
               <div class="tab-pane active" id="archive">
 
-                                <table id="post" class="table table-striped table-bordered">
-                                  <thead class="text-primary">
-                                    <th>
-                                      Title
-                                    </th>
-                                    <th>
-                                      Category
-                                    </th>
-                                    <th>
-                                      Views
-                                    </th>
-                                  </thead>
-                                  <tbody>
-                                    @foreach($contentt as $content)
-                                    <tr>
-                                      <td>
-                                        <p>{{$content -> title}}</p>
-                                      </td>
-                                      <td>
-                                        <p>{{$content -> kategori}}</p>
-                                      </td>
-                                      <td>
-                                        <p>{{$content -> viewer}}</p>
-                                      </td>
-                                    </tr>
-                                    @endforeach
-                                  </tbody>
-                                </table>
+                <table id="post" class="table table-striped table-bordered">
+                  <thead class="text-primary">
+                    <th>
+                      Title
+                    </th>
+                    <th>
+                      Category
+                    </th>
+                    <th>
+                      Views
+                    </th>
+                  </thead>
+                  <tbody>
+                    @foreach($contentviewer as $content)
+                    <tr>
+                      <td>
+                        <p>{{$content -> title}}</p>
+                      </td>
+                      <td>
+                        <p>{{$content -> kategori}}</p>
+                      </td>
+                      <td>
+                        <p>{{$content -> viewer}}</p>
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
 
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!--  -->
     </div>
   </div>
 </div>
 
-
-
-
-
-
-<?php
-foreach ($label as $query) {$dataLabel[]=$query;}
-?>
 <?php
 foreach ($vieww as $queryy) {$dataLabell[]=$queryy;}
 ?>
@@ -238,7 +237,6 @@ foreach ($vieww as $queryy) {$dataLabell[]=$queryy;}
 <script src="{{asset('/assets/js/exporting.js')}}"></script>
 
 
-</script>
 <script>
   Highcharts.chart('chart1', {
       chart: {
@@ -273,7 +271,7 @@ foreach ($vieww as $queryy) {$dataLabell[]=$queryy;}
       series: [{
           name: 'Artikel',
           colorByPoint: true,
-          data: <?php echo json_encode($dataLabel, JSON_NUMERIC_CHECK); ?>
+          data: <?php echo json_encode($label, JSON_NUMERIC_CHECK); ?>
       }]
   });
   </script>

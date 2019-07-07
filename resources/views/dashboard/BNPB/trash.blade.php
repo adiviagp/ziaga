@@ -34,8 +34,7 @@
                           <td>
                             <p>{{$content -> category -> kategori}}</p>
                           </td>
-                          <td class="td-action">
-
+                          <td class="td-action" style="display:flex">
 
                             <form action="{{url('/kontributor/posts/'.$content -> id.'/status')}}" method="post">
                               {{ csrf_field() }}{{ method_field('PUT') }}
@@ -46,7 +45,6 @@
                               <i class="material-icons">delete</i>
                             </button>
                           </form>
-
 
                           </td>
                         </tr>

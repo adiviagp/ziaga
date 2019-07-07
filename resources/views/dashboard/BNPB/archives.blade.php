@@ -34,7 +34,7 @@
                           <td>
                             <p>{{$content -> category -> kategori}}</p>
                           </td>
-                          <td class="td-action">
+                          <td class="td-action" style="display:flex">
                             <a href="{{url('/post/'.$content -> id)}}" target="_blank" rel="tooltip" title="View Post" class="btn btn-success btn-link btn-sm">
                               <i class="material-icons">visibility</i>
                             </a>

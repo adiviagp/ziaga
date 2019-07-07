@@ -13,10 +13,88 @@ use paginate;
 class bnpbController extends Controller
 {
   public function dashboard(content $content){
+    //Declare
+    $statusArtikel = "Normal";
+    $statusViewer = "Normal";
+    $keputusan = "Normal";
+    $startDate = new \DateTime(Date('Y-m-d', strtotime('-7 days')));
+    $endDate = new \DateTime(Date('Y-m-d', strtotime('+0 days')));
+    $interval = \DateInterval::createFromDateString('1 day');
+    $days = new \DatePeriod($startDate, $interval, $endDate);
+
+
+    //Regresi Viewer
+    $totalView = array(); $i=0;
+    foreach($days as $day){
+      $viewData = DB::table('views')
+      ->select(DB::raw('count(*) as total'))
+      ->where(DB::raw('DATE_FORMAT(viewed_at, "%Y-%m-%d")'), $day->format('Y-m-d'))
+      ->groupBy('viewed_at')
+      ->get();
+      $totalView[$i] = $viewData->count();
+      $i++;
+    }
+    $prediksiView = $totalView[0];
+    for($j=1; $j<sizeof($totalView); $j++){
+      $prediksiView = floor(abs($prediksiView - $totalView[$j] /2));
+    }
+    $viewToday = DB::table('views')
+    ->select(DB::raw('count(*) as total'))
+    ->where(DB::raw('DATE_FORMAT(viewed_at, "%Y-%m-%d")'), date('Y-m-d'))
+    ->groupBy('viewed_at')
+    ->get();
+    $viewToday = $viewToday->count();
+
+    if($viewToday < $prediksiView) $statusViewer = "Kekurangan";
+    elseif($viewToday = $prediksiView) $statusViewer = "Normal";
+    elseif($viewToday > $prediksiView) $statusViewer = "Berlebih";
+
+
+    //Regresi Artikel
+    $totalArtikel = array(); $i=0;
+    foreach($days as $day){
+      $artikelData = DB::table('contents')
+      ->select(DB::raw('count(*) as total'))
+      ->where('status_id',1)
+      ->where('updated_at', $day->format('Y-m-d'))
+      ->groupBy('updated_at')
+      ->get();
+      $totalArtikel[$i] = $artikelData->count();
+      $i++;
+    }
+    $prediksiArtikel = $totalArtikel[0];
+    for($j=1; $j<sizeof($totalArtikel); $j++){
+      $prediksiArtikel = ceil(abs($prediksiArtikel - $totalArtikel[$j] /2));
+    }
+    $artikelToday = DB::table('contents')
+    ->select(DB::raw('count(*) as total'))
+    ->where('status_id',1)
+    ->where('updated_at', date('Y-m-d'))
+    ->groupBy('updated_at')
+    ->get();
+    $artikelToday = $artikelToday->count();
+
+    if($artikelToday < $prediksiArtikel) $statusArtikel = "Kekurangan";
+    elseif($artikelToday = $prediksiArtikel) $statusArtikel = "Normal";
+    elseif($artikelToday > $prediksiArtikel) $statusArtikel = "Berlebih";
+
+
+    //Membuat Keputusan
+    if    ($statusViewer == "Kekurangan" && $statusArtikel == "Kekurangan") $keputusan = "Butuh Tambahan Artikel";
+    elseif($statusViewer == "Normal" && $statusArtikel == "Kekurangan") $keputusan = "Pertahankan Kondisi";
+    elseif($statusViewer == "Berlebih" && $statusArtikel == "Kekurangan") $keputusan = "Butuh Tambahan Artikel";
+    elseif($statusViewer == "Kekurangan" && $statusArtikel == "Normal") $keputusan = "Evaluasi Artikel";
+    elseif($statusViewer == "Normal" && $statusArtikel == "Normal") $keputusan = "Pertahankan Kondisi";
+    elseif($statusViewer == "Berlebih" && $statusArtikel == "Normal") $keputusan = "Butuh Tambahan Artikel";
+    elseif($statusViewer == "Kekurangan" && $statusArtikel == "Berlebih") $keputusan = "Evaluasi Artikel";
+    elseif($statusViewer == "Normal" && $statusArtikel == "Berlebih") $keputusan = "Evaluasi Artikel";
+    elseif($statusViewer == "Berlebih" && $statusArtikel == "Berlebih") $keputusan = "Pertahankan Kondisi";
+
+
     $archive = content::where('status_id',0)->count();
     $post = content::where('status_id',1)->count();
     $trash = content::where('status_id',2)->count();
-    $contentt = DB::table('contents')
+    $contentviewer = DB::table('contents')
       ->join('views', 'contents.id','=','views.viewable_id')
       ->join('categories', 'contents.category_id','=','categories.id')
       ->where('contents.status_id',1)
@@ -33,7 +111,7 @@ class bnpbController extends Controller
     ->select(DB::raw('DATE_FORMAT(views.viewed_at, "%Y,%m,%d") as x'), DB::raw('count(*) as y'))
     ->groupBy('x')
     ->get();
-    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentt', 'vieww'));
+    return view('dashboard.BNPB.index', compact('archive','post','trash','label','contentviewer', 'vieww', 'keputusan', 'statusViewer', 'statusArtikel'));
   }
 
   // Kontributor
@@ -48,7 +126,6 @@ class bnpbController extends Controller
   }
 
   // list data
-
   public function posts(){
     $content = content::where('status_id',1)->get();
     return view('dashboard.BNPB.posts', compact('content'));

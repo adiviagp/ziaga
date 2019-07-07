@@ -61,7 +61,7 @@
                     <script src="https://code.highcharts.com/highcharts.js"></script>
                     <script src="https://code.highcharts.com/modules/exporting.js"></script>
                     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-                    <div id="container" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+                    <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
                   </body>
 
                 </table>
@@ -174,12 +174,8 @@
   </div>
 </div>
 
-<?php
-foreach ($label as $query) {$dataLabel[]=$query;}
-?>
-
 <script>
-  Highcharts.chart('container', {
+  Highcharts.chart('chart1', {
       chart: {
           plotBackgroundColor: null,
           plotBorderWidth: null,
@@ -212,7 +208,7 @@ foreach ($label as $query) {$dataLabel[]=$query;}
       series: [{
           name: 'Artikel',
           colorByPoint: true,
-          data: <?php echo json_encode($dataLabel, JSON_NUMERIC_CHECK); ?>
+          data: <?php echo json_encode($label, JSON_NUMERIC_CHECK); ?>
       }]
   });
 </script>
