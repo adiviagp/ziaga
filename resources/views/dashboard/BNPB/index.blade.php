@@ -6,7 +6,7 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="col-lg-3 col-md-3 col-sm-12">
         <div class="featured card card-stats">
           <div class="card-header">
             <div class="card-icon">
@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="col-lg-3 col-md-3 col-sm-12">
         <div class="featured card card-stats">
           <div class="card-header">
             <div class="card-icon">
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="col-lg-3 col-md-3 col-sm-12">
         <div class="featured card card-stats">
           <div class="card-header">
             <div class="card-icon">
@@ -41,6 +41,19 @@
             <div class="detail text-center">
               <p class="card-category">Trash</p>
               <h3 class="card-title">{{$trash}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="featured card card-stats">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="{{asset('/assets/img/user.svg')}}">
+            </div>
+            <div class="detail text-center">
+              <p class="card-category">Total Pembaca</p>
+              <h3 class="card-title">{{$viewer}}</h3>
             </div>
           </div>
         </div>
@@ -54,11 +67,9 @@
             <div class="detail text-center">
               <p class="card-category">Tingkat Kesehatan Artikel</p>
               <h3 class="card-title">
-                Status Pembaca: {{$statusViewer}}
-                <br>
-                Status Artikel: {{$statusArtikel}}
-                <br>
-                Maka disarankan {{$keputusan}}
+                Terjadi {{$statusViewer}} jumlah pembaca dan ketersediaan Artikel yang {{$statusArtikel}}.
+                <br>Disarankan untuk {{$keputusan}}.
+                <h6>Publish {{round($z)}} Artikel lagi untuk memenuhi target bulan ini.</h6>
               </h3>
             </div>
           </div>
