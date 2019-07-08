@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2019 at 02:52 AM
+-- Generation Time: Jul 08, 2019 at 06:48 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -83,7 +83,8 @@ INSERT INTO `contents` (`id`, `title`, `thumbnail`, `category_id`, `description`
 (10, 'Mempersiapkan Rumah Menghadapi Gempa Bumi', 'gempa.png', '2', 'Gempa Bumi', '<p><strong>Simpanlah perbekalan.</strong> Jika Anda tinggal di daerah rawan gempa, seperti Yogyakarta dan pesisir selatan Jawa, pastikan Anda sudah bersiap-siap jika terjadi gempa bumi. Menyimpan perbekalan adalah salah satu cara untuk mempersiapkan diri agar Anda memiliki apa yang dibutuhkan jika bencana terjadi.</p>\r\n\r\n<p><strong>Belilah atau buatlah kotak P3K.</strong> Dalam gempa bumi, cedera bisa saja terjadi. Menyiapkan kotak P3K dapat membantu Anda menangani cedera ringan, terutama karena ruang gawat darurat kemungkinan akan kelebihan pasien. Anda dapat membeli perlengkapan siap pakai atau mengumpulkan persediaan untuk membuatnya sendiri.</p>\r\n\r\n<p><strong>Pelajari langkah pertolongan pertama dan pernapasan buatan.</strong> Jika Anda, anggota keluarga, atau teman Anda terluka saat gempa bumi dan tidak dapat memperoleh pertolongan, Anda akan bersyukur karena tahu cara menangani cedera dasar. Pelatihan pertolongan pertama dan pernapasan buatan akan mengajarkan apa yang harus dilakukan dalam keadaan darurat jika ada yang terluka.</p>\r\n\r\n<p><strong>Pelajari cara mematikan gas, air, dan listrik.</strong> Meskipun hal ini merupakan fasilitas umum dalam kehidupan sehari-hari, saat terjadi bencana alam semua ini dapat mengancam nyawa. Gas bisa bocor; listrik bisa menimbulkan percikan api; dan air bisa terkontaminasi. Setelah gempa bumi, mungkin Anda perlu mematikan salah satu atau semua fasilitas ini.</p>\r\n\r\n<p><strong>Amankan pemanas air.</strong> Dalam gempa bumi, pemanas air Anda bisa jatuh atau rusak sehingga menciptakan genangan air yang sangat besar. Jika Anda dapat melindungi air tersebut dan menjaganya agar tidak bocor dari pemanas air, Anda dapat menggunakannya sebagai sumber air minum bersih meskipun air di kota tidak aman. Oleh karena itu, sebelum terjadi gempa bumi, amankan pemanas air Anda.</p>\r\n\r\n<p><strong>Tentukan lokasi pertemuan setelah gempa bumi reda.</strong> Saat terjadi gempa bumi, jaringan telepon bisa terputus. Mungkin Anda tidak dapat menjangkau orang-orang yang Anda cintai. Oleh karena itu, putuskan terlebih dahulu di mana kalian akan bertemu jika terjadi bencana.</p>\r\n\r\n<p><strong>Jadikan rumah Anda tahan gempa.</strong> Jika Anda tinggal di daerah rawan gempa, pertimbangkan untuk memindahkan benda-benda berat dari rak tinggi dan tambatkan perabotan berat pada lantai. Selama gempa, benda-benda ini bisa jatuh atau bergerak, melukai Anda atau orang lain di rumah Anda.</p>', 5, 1, '2019-05-22 00:53:38', '2019-05-22 23:43:03'),
 (11, 'Cara Menghadapi Jika Terjadi Gunung Meletus', 'gunungberapi.png', '1', 'Saat sekarang ini kita tidak bisa lagi mengelak dari bencana alam. Berbagai bencana yang terjadi seperti meletusnya gunung merapi tidak dapat diprediksi kapan gunung itu akan meletus.', '<p>Letusan gunung api adalah merupakan bagian dari aktivitas vulkanik yang dikenal dengan istilah &quot;erupsi&quot;. Hampir semua kegiatan gunung api berkaitan dengan zona kegempaan aktif, sebab berhubungan dengan batas lempeng. Pada batas lempeng inilah terjadi perubahan tekanan dan suhu yang sangat tinggi sehingga mampu melelehkan material sekitarnya yang merupakan cairan pijar (magma). Magma akan mengintrusi batuan atau tanah di sekitarnya melalui rekahan- rekahan mendekati permukaan bumi. Dan berikut ini cara menghadapi jika terjadi gunung meletus :<br />\r\n<br />\r\nJika Terjadi Letusan Gunung Berapi<br />\r\n1.Hindari daerah rawan bencana seperti lereng gunung, lembah dan daerah aliran lahar.<br />\r\n2.Ditempat terbuka, lindungi diri dari abu letusan dan awan panas. Persiapkan diri untuk kemungkinan bencana susulan.<br />\r\n3.Kenakan pakaian yang bisa melindungi tubuh seperti: baju lengan panjang, celana panjang, topi dan lainnya.<br />\r\n4.Jangan memakai lensa kontak.<br />\r\n5.Pakai masker atau kain untuk menutupi mulut dan hidung.<br />\r\n6.Saat turunnya awan panas usahakan untuk menutup wajah dengan kedua belah tangan.<br />\r\n<br />\r\nSetelah Terjadi Letusan Gunung Berapi<br />\r\n1.Jauhi wilayah yang terkena hujan abu.<br />\r\n2.Bersihkan atap dari timbunan abu. Karena beratnya, bisa merusak atau meruntuhkan atap bangunan.<br />\r\n3.Hindari mengendarai mobil di daerah yang terkena hujan abu sebab bisa merusak mesin.</p>', 6, 3, '2019-05-22 00:55:32', '2019-05-22 00:55:32'),
 (12, 'Panduan Keselamatan Ketika Terjadi Letusan Gunung Berapi', 'gunungberapi.png', '1', 'Bencana alam seperti letusan gunung api memang tidak mungkin bisa dilawan dan ditundukkan. Meski begitu, bukan berarti bencana satu ini tidak bisa Anda antisipasi. Itu sebabnya, Anda harus pandai-pandai menyusaikan diri dengan selalu waspada dan siap siaga saat bencana alam tersebut terjadi. Lantas, apa yang seharusnya bisa dilakukan sebelum, selama, dan sesudah bencana letusan gunung berapi terjadi? Simak tips-tipsnya dalam artikel ini.', '<h2>Mengenal bahaya yang timbul akibat letusan gunung berapi</h2>\r\n\r\n<p>Sebelum mengetahui segala persiapan yang harus dilakukan sebelum, selama, dan sesudah bencana letusan gunung berapi terjadi, Anda harus pahami dulu bahaya yang nantinya akan timbul akibat letusan gunung api. Berikut ini bahaya-bahaya yang akan timbul akibat letusan gunung berapi:</p>\r\n\r\n<ul>\r\n	<li><strong>Aliran lava</strong>. Lava adalah magma yang meleleh ke permukaan bumu melalui rekahan, suhunya bisa mencapai lebih dari seribu derajat celsius dan dapat merusak segala bentuk insfrastruktur di sekitarnya.</li>\r\n	<li><strong>Awan panas.</strong> Awan panas adalah aliran material vulkanik panas yang terdiri atas batuan berat, ringatn (berongga), larva massif dan butiran klastik yang pergerakkan dipengaruhi oleh gravitasi dan cenderung mengalir melalui lembah.</li>\r\n	<li><strong>Gas beracun</strong>. Gas beracun adalah gas vulkanik yang dapat mematikan seketika apabila terhirup dalam tubuh. Gas beracun ini adalah <a href=\"https://hellosehat.com/kesehatan/kandungan-karbon-dioksida/\" target=\"_blank\">karbon dioksida</a> (CO2), sulfur dioksida (SO2), asam hidroklorida (HCL), asam flourida (HF), dan asam sulfat (H2SO4).</li>\r\n	<li><strong>Lahar letusan.</strong> Lahar letusan terjadi pada gunung berapi yang mempunyai danau kawah dan terjadi bersamaan ketika letusan.</li>\r\n	<li><strong>Abu vulkanik.</strong> Abu vulkanik atau disebut juga sebagai jatuhan piroklastik adalah bahan material vulkanik yang disemburkan ke udara saat terjadi letusan gunung api.</li>\r\n</ul>\r\n\r\n<h2>Persiapan sebelum terjadi letusan gunung berapi</h2>\r\n\r\n<p>Bersiaplah untuk berlindung dan mengungsi ke tempat yang biasanya sudah disiapkan oleh petugas berwenang sebelumnya. Perhatikan baik-baik rencana evakuasi dan perlindungan untuk untuk diri Anda sendiri dan keluarga setelah gunung berapi dikatakan <strong>bersatus siaga</strong>. Tinjau ulang rencana tersebut dan pastikan setiap orang memahaminya.&nbsp;</p>\r\n\r\n<p>Jangan lupa, susunlah perlengkapan darurat dalam satu tas sehingga saat terjadinya letusan Anda dan keluarga bisa langsung bersiap untuk proses evakuasi tanpa harus memikirkan barang apa saja apa yang harus dibawa. Namun ingat, karena perlengkapan darurat, Anda disarankan membawa hal-hal yang paling penting saja, misalnya:</p>\r\n\r\n<ul>\r\n	<li>Senter dan baterai ekstra</li>\r\n	<li>Kotak P3K</li>\r\n	<li>Makanan darurat dan air</li>\r\n	<li>Masker (usahakan pilihlah masker jenis N 95 karena mampu menghalangi 95 persen partikel yang masuk ke saluran pernapasan)</li>\r\n	<li>Kacamata</li>\r\n	<li>Kantung tidur</li>\r\n	<li>Pakaian hangat</li>\r\n	<li>Radio yang menggunakan baterai. Radio dengan baterai lebih disarankan karena saat listrik padam, Anda masih bisa mengandalkan radio. Memantau informasi lewat media berguna untuk menentukan langkah selanjutnya.</li>\r\n</ul>\r\n\r\n<p>Selain perlengkapan, Anda juga harus memikirkan beberapa jalur alternatif atau jalur evakuasi untuk menuju zona aman karena letusan gunung berapi biasanya datang secara tiba-tiba.</p>', 6, 1, '2019-05-22 01:11:12', '2019-05-22 01:12:39'),
-(13, 'Panduan Keselamatan Ketika Terjadi Letusan Gunung Berapi', 'gunungberapi.png', '1', 'Bencana alam seperti letusan gunung api memang tidak mungkin bisa dilawan dan ditundukkan. Meski begitu, bukan berarti bencana satu ini tidak bisa Anda antisipasi. Itu sebabnya, Anda harus pandai-pandai menyusaikan diri dengan selalu waspada dan siap siaga saat bencana alam tersebut terjadi. Lantas, apa yang seharusnya bisa dilakukan sebelum, selama, dan sesudah bencana letusan gunung berapi terjadi? Simak tips-tipsnya dalam artikel ini.', '<h2>Saat terjadi letusan gunung api</h2>\r\n\r\n<p>Biasanya saat terjadi letusan terdapat bunyi sirine sebagai tanda peringatan. Jika Anda tinggal di area yang masuk daerah rawan, bergegaslah menuju titik kumpul sambil membawa perlengkapan darurat yang sudah disiapkan sebelumnya dan lakukan proses evakuasi sesuai dengan instruksi yang diarahkan petugas.</p>\r\n\r\n<p>Perhatikan instruksi darurat saat terjadi letusan dengan baik dan seksama. Instruksi ini akan mengarahkan Anda harus dievakuasi ke tempat lain atau dapat tetap berada di tempat karena efeknya diketahui tak begitu besar. Korban letusan biasanya banyak berjatuhan akibat tidak mengindahkan instruksi darurat ini.</p>\r\n\r\n<p>Meski kelihatannya aman tinggal di rumah dan menunggu letusan, hal itu bisa sangat berbahaya. Pasalnya, gunung berapi memuntahkan gas panas, abu, lahar, dan batu yang sangat merusak. Jadi, jangan pernah abaikan instruksi darurat yang diberikan petugas berwenang.</p>\r\n\r\n<p>Berikut ini beberapa hal yang harus perhatikan ketika sedang terjadi letusan gunung berapi.</p>\r\n\r\n<ul>\r\n	<li>Hindari daerah rawan bencana seperti lereng gunung, lembah, dan aliran lahar.</li>\r\n	<li>Jauhi daerah yang mengarah angin dari gunung berapi untuk menghindari hujan abu.</li>\r\n	<li>Kenakan pakaian yang bisa melindungi tubuh seperti baju lengan panjang, celana panjang, topi, dan lainnya.</li>\r\n	<li>Gunakan kacamata dan jangan memakai lensa kontak.</li>\r\n	<li>Pakai masker atau kain untuk menutup mulut dan hidung.</li>\r\n</ul>\r\n\r\n<h2>Setelah terjadi letusan gunung berapi</h2>\r\n\r\n<ul>\r\n	<li>Pastikan Anda tetap menyalakan radio untuk mengetahui situasi terkini. Jika Anda salah satu penduduk yang tidak dinstruksikan mengungsi, pastikan Anda tetap berada di dalam rumah hingga Anda mendengar kabar bahwa telah aman bagi Anda dan keluarga untuk keluar rumah.</li>\r\n	<li>Jauhi wilayah yang terkena hujan abu karena abu vulkanik mengandung partikel-partikel kecil yang bisa merusak paru-paru<a href=\"https://hellosehat.com/hidup-sehat/fakta-unik/3-bahaya-asap-knalpot-bagi-kesehatan/\" target=\"_blank\">.</a></li>\r\n	<li>Jika situasi dirasa sudah aman, bersihkan atap rumah dari timbunan abu karena timbunan abu yang menumpuk pada atap bisa merusak atau meruntuhkan atap bangunan.</li>\r\n	<li>Jangan menyalakan AC atau membuka ventilasi rumah sebelum abu vulkanik benar-benar dibersihkan.</li>\r\n	<li>Hindari mengendarai mobil di daerah yang terkena hujan abu sebab bisa merusak mesin kendaraan seperti rem, persneling, hingga knalpot.</li>\r\n</ul>', 6, 0, '2019-05-22 01:12:20', '2019-05-22 01:12:20');
+(13, 'Panduan Keselamatan Ketika Terjadi Letusan Gunung Berapi', 'gunungberapi.png', '1', 'Bencana alam seperti letusan gunung api memang tidak mungkin bisa dilawan dan ditundukkan. Meski begitu, bukan berarti bencana satu ini tidak bisa Anda antisipasi. Itu sebabnya, Anda harus pandai-pandai menyusaikan diri dengan selalu waspada dan siap siaga saat bencana alam tersebut terjadi. Lantas, apa yang seharusnya bisa dilakukan sebelum, selama, dan sesudah bencana letusan gunung berapi terjadi? Simak tips-tipsnya dalam artikel ini.', '<h2>Saat terjadi letusan gunung api</h2>\r\n\r\n<p>Biasanya saat terjadi letusan terdapat bunyi sirine sebagai tanda peringatan. Jika Anda tinggal di area yang masuk daerah rawan, bergegaslah menuju titik kumpul sambil membawa perlengkapan darurat yang sudah disiapkan sebelumnya dan lakukan proses evakuasi sesuai dengan instruksi yang diarahkan petugas.</p>\r\n\r\n<p>Perhatikan instruksi darurat saat terjadi letusan dengan baik dan seksama. Instruksi ini akan mengarahkan Anda harus dievakuasi ke tempat lain atau dapat tetap berada di tempat karena efeknya diketahui tak begitu besar. Korban letusan biasanya banyak berjatuhan akibat tidak mengindahkan instruksi darurat ini.</p>\r\n\r\n<p>Meski kelihatannya aman tinggal di rumah dan menunggu letusan, hal itu bisa sangat berbahaya. Pasalnya, gunung berapi memuntahkan gas panas, abu, lahar, dan batu yang sangat merusak. Jadi, jangan pernah abaikan instruksi darurat yang diberikan petugas berwenang.</p>\r\n\r\n<p>Berikut ini beberapa hal yang harus perhatikan ketika sedang terjadi letusan gunung berapi.</p>\r\n\r\n<ul>\r\n	<li>Hindari daerah rawan bencana seperti lereng gunung, lembah, dan aliran lahar.</li>\r\n	<li>Jauhi daerah yang mengarah angin dari gunung berapi untuk menghindari hujan abu.</li>\r\n	<li>Kenakan pakaian yang bisa melindungi tubuh seperti baju lengan panjang, celana panjang, topi, dan lainnya.</li>\r\n	<li>Gunakan kacamata dan jangan memakai lensa kontak.</li>\r\n	<li>Pakai masker atau kain untuk menutup mulut dan hidung.</li>\r\n</ul>\r\n\r\n<h2>Setelah terjadi letusan gunung berapi</h2>\r\n\r\n<ul>\r\n	<li>Pastikan Anda tetap menyalakan radio untuk mengetahui situasi terkini. Jika Anda salah satu penduduk yang tidak dinstruksikan mengungsi, pastikan Anda tetap berada di dalam rumah hingga Anda mendengar kabar bahwa telah aman bagi Anda dan keluarga untuk keluar rumah.</li>\r\n	<li>Jauhi wilayah yang terkena hujan abu karena abu vulkanik mengandung partikel-partikel kecil yang bisa merusak paru-paru<a href=\"https://hellosehat.com/hidup-sehat/fakta-unik/3-bahaya-asap-knalpot-bagi-kesehatan/\" target=\"_blank\">.</a></li>\r\n	<li>Jika situasi dirasa sudah aman, bersihkan atap rumah dari timbunan abu karena timbunan abu yang menumpuk pada atap bisa merusak atau meruntuhkan atap bangunan.</li>\r\n	<li>Jangan menyalakan AC atau membuka ventilasi rumah sebelum abu vulkanik benar-benar dibersihkan.</li>\r\n	<li>Hindari mengendarai mobil di daerah yang terkena hujan abu sebab bisa merusak mesin kendaraan seperti rem, persneling, hingga knalpot.</li>\r\n</ul>', 6, 0, '2019-05-22 01:12:20', '2019-06-22 01:12:20'),
+(14, 'gunung berapi', 'gunungberapi.png', '1', 'gunung berapi', '<p>gunung berapi</p>', 4, 1, '2019-07-04 18:55:46', '2019-07-04 18:55:46');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2018_12_12_132347_create_content_table', 1),
-(2, '2018_12_13_035927_create_categories_table', 2);
+(2, '2018_12_13_035927_create_categories_table', 2),
+(3, '2019_06_27_132123_create_views_table', 3);
 
 -- --------------------------------------------------------
 
@@ -135,9 +137,60 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role_id`, `namaDepan`, `namaBelakang`, `email`, `foto`, `password`, `alamat`, `kota`, `provinsi`, `kodePos`, `tentangSaya`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'BNPB', 'Official', 'admin@admin.com', '', '$2y$10$xcyEMvoVTjgHTw7nhKvgHuQmgWb.mgIisXzFwx.3XZ5E8A5FycWlG', NULL, NULL, NULL, NULL, NULL, 'JKmLcPzusn9ovXNSE6PEBAF5X7lSVxc9yEijFLWHcYCI9gfLW4perh9kFn4D', '2018-12-18 10:30:16', '2018-12-18 10:30:16'),
-(4, 1, 'Achmad', 'Noer', 'admin@adm.com', NULL, '$2y$10$oBK.ChVHxchFksxACKHjT.UkIOX8A7/T7um41BLamQ.OXIzZiGcBO', NULL, NULL, NULL, NULL, NULL, 'ouwW08Gy5yrEUL5ZF0lc3AfDeOiwwYPPPcRoiE09uYs4xB1M6FitO6t0jXjQ', '2019-05-09 19:55:39', '2019-05-09 19:55:39'),
-(5, 0, 'Noer', 'Aziz', 'achmad@noer.com', NULL, '$2y$10$oBK.ChVHxchFksxACKHjT.UkIOX8A7/T7um41BLamQ.OXIzZiGcBO', NULL, NULL, NULL, NULL, NULL, 'WJiNDQlcjePrn4qz9QtyKz2ihOdaBpxoAgyg8lDHkDOLLKL6XDM1kZuGABIf', '2019-05-09 20:07:46', '2019-05-09 20:07:46'),
-(6, 0, 'Adivia', 'GP', 'qwerty@asd.com', NULL, '$2y$10$hP8xbb34O.7TbdIyxA6xfuiJVWBWfWSCLv3iG2EXQ.AhAv/T9XeGO', NULL, NULL, NULL, NULL, NULL, 'ChFOAwWoenpFkvZCHxneHRBeDcZBM9BOpMw0idC3mOrMRPF3Yw6A3unPyUZn', '2019-05-17 17:17:13', '2019-05-17 17:17:13');
+(4, 1, 'Achmad', 'Noer', 'admin@adm.com', NULL, '$2y$10$oBK.ChVHxchFksxACKHjT.UkIOX8A7/T7um41BLamQ.OXIzZiGcBO', NULL, NULL, NULL, NULL, NULL, 'ednNImGxGhLDDPGPxTClWwwVlLH4Yd0cswDxMyczelGgDjnqyf49Nrr6HK4W', '2019-05-09 19:55:39', '2019-05-09 19:55:39'),
+(5, 0, 'Noer', 'Aziz', 'achmad@noer.com', NULL, '$2y$10$oBK.ChVHxchFksxACKHjT.UkIOX8A7/T7um41BLamQ.OXIzZiGcBO', NULL, NULL, NULL, NULL, NULL, 'sEZj39co6O5Zzg9GAPHgOJjK9ySrCEInd5c8ZgJ5gtd02tVdNGgMLAinmUqc', '2019-05-09 20:07:46', '2019-05-09 20:07:46'),
+(6, 0, 'Adivia', 'GP', 'qwerty@asd.com', NULL, '$2y$10$hP8xbb34O.7TbdIyxA6xfuiJVWBWfWSCLv3iG2EXQ.AhAv/T9XeGO', NULL, NULL, NULL, NULL, NULL, 'ChFOAwWoenpFkvZCHxneHRBeDcZBM9BOpMw0idC3mOrMRPF3Yw6A3unPyUZn', '2019-05-17 17:17:13', '2019-05-17 17:17:13'),
+(7, 0, 'Uka', 'Uka', 'uka@uka.com', NULL, '$2y$10$ZDZXEdGaUow6GFFOLYYo.uG6YpZ.rhgAlDkdMUsmoXNkz89a77kNO', NULL, NULL, NULL, NULL, NULL, 'aSPjtZm66pQkMiszhx2j5T21euB8rohCMXrpaHQUxePU0GMf5Mv70x3OPKQG', '2019-07-03 17:31:43', '2019-07-03 17:31:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `views`
+--
+
+CREATE TABLE `views` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `viewable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `viewable_id` bigint(20) UNSIGNED NOT NULL,
+  `visitor` text COLLATE utf8mb4_unicode_ci,
+  `collection` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `viewed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `views`
+--
+
+INSERT INTO `views` (`id`, `viewable_type`, `viewable_id`, `visitor`, `collection`, `viewed_at`) VALUES
+(1, 'App\\content', 2, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:36:54'),
+(2, 'App\\content', 2, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:37:16'),
+(3, 'App\\content', 4, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:37:27'),
+(4, 'App\\content', 5, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:49:56'),
+(5, 'App\\content', 5, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:50:04'),
+(6, 'App\\content', 5, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:50:38'),
+(7, 'App\\content', 5, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:51:10'),
+(8, 'App\\content', 3, 'AsTta630YQx1JgJ2TIEnIA49V1goQo9tQoPAl4t5yJF8yftF74qpuBMPdIy4EDgxF4fiK2nCfxWbnaIi', NULL, '2019-06-27 06:51:31'),
+(9, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 00:41:51'),
+(10, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:04:33'),
+(11, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:07:37'),
+(12, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:38:25'),
+(13, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:40:10'),
+(14, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:40:44'),
+(15, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:40:52'),
+(16, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:47:09'),
+(17, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:48:54'),
+(18, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 05:52:54'),
+(19, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 06:04:59'),
+(20, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 06:05:39'),
+(21, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 06:14:35'),
+(22, 'App\\content', 2, 'RhLDDyXwRuEhDTdvRnnZNF8ZgJWfbMpRDTmPCv7e9KKhuVeCzjbJHgWaSwsDLvnEC0UsmbG0ZEwoytfj', NULL, '2019-07-03 06:14:58'),
+(23, 'App\\content', 2, 'qu7hknmg3PP5KJhEgiNf6bIMHtlMipJLtE3FWEOqqDUQjb9hvH0aOgQFZ0Qw0T9kbtxYEGI8Vt3l12rE', NULL, '2019-07-04 06:02:21'),
+(24, 'App\\content', 5, 'qu7hknmg3PP5KJhEgiNf6bIMHtlMipJLtE3FWEOqqDUQjb9hvH0aOgQFZ0Qw0T9kbtxYEGI8Vt3l12rE', NULL, '2019-07-04 06:02:31'),
+(26, 'App\\content', 13, '7', NULL, '2019-07-04 11:59:14'),
+(27, 'App\\content', 11, '0', NULL, '2019-07-04 17:23:55'),
+(28, 'App\\content', 1, '0', NULL, '2019-07-04 17:25:43'),
+(29, 'App\\content', 13, '7', NULL, '2019-07-04 18:54:20'),
+(30, 'App\\content', 14, '4', NULL, '2019-07-04 18:58:20');
 
 --
 -- Indexes for dumped tables
@@ -169,6 +222,13 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`role_id`);
 
 --
+-- Indexes for table `views`
+--
+ALTER TABLE `views`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `views_viewable_type_viewable_id_index` (`viewable_type`(191),`viewable_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -182,19 +242,25 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `views`
+--
+ALTER TABLE `views`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

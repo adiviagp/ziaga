@@ -111,17 +111,17 @@ class bnpbController extends Controller
 
 //MENGHITUNG NILAI FUZZY DIMULAI DARI SINI
     //Variabel Permintaan
-        $requestX = 2.9;
+        $requestX = 5;
 
         if($requestX <= 4) {$reqArtikel_Kurang = 1;}
         elseif($requestX > 4 && $requestX <12) {$reqArtikel_Kurang = (12-$requestX)/8;}
         elseif($requestX >= 12) {$reqArtikel_Kurang = 0;}
-        $reqArtikel_Kurang = 1;//Data Sementara
+        $reqArtikel_Kurang = 7/8;//Data Sementara
 
         if($requestX <= 4) {$reqArtikel_Berlebih = 0;}
         elseif($requestX > 4 && $requestX < 12) {$reqArtikel_Berlebih = ($requestX-4)/8;}
         elseif($requestX >= 12) {$reqArtikel_Berlebih = 1;}
-        $reqArtikel_Berlebih = 0;//Data Sementara
+        $reqArtikel_Berlebih = 1/8;//Data Sementara
 
     //Variabel Persediaan
         $requestY = 10;
@@ -156,14 +156,14 @@ class bnpbController extends Controller
         if($z3 <= 4) $z3 = 0;
         elseif($z3 > 4 && $z3 < 12) $z3 = ($r3*8) - 4;
         elseif($z3 >= 12) $z3 = 1;
-        $r3=0; $z3=0;//Data Sementara
+        $r3=1/8; $z3=0;//Data Sementara
 
         $r4 = min($reqArtikel_Berlebih, $reqArtikel_Penurunan);
         $z4 = ($r4*8) - 4;
         if($z4 <= 4) $z4 = 0;
         elseif($z4 > 4 && $z4 < 12) $z1 = ($r4*8) - 4;
         elseif($z4 >= 12) $z4 = 1;
-        $r4=4/10; $z4=-0.8;//Data Sementara
+        $r4=1/8; $z4=0;//Data Sementara
 
 
         $z = ($r1*$z1 + $r2*$z2 + $r3*$z3 + $r4*$z4) / ($r1 + $r2 + $r3 + $r4);
