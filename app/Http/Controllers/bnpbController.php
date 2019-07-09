@@ -13,29 +13,6 @@ use paginate;
 class bnpbController extends Controller
 {
   public function dashboard(content $content){
-    $archive = content::where('status_id',0)->count();
-    $post = DB::table('contents')->count();
-    $trash = content::where('status_id',2)->count();
-    $viewer = DB::table('views')->count();
-    $contentviewer = DB::table('contents')
-      ->join('views', 'contents.id','=','views.viewable_id')
-      ->join('categories', 'contents.category_id','=','categories.id')
-      ->where('contents.status_id',1)
-      ->select('title', 'kategori', DB::raw('count(viewable_id) as viewer'))
-      ->groupBy('kategori')
-      ->get();
-    $label = DB::table('contents')
-    ->join('categories', 'contents.category_id','=','categories.id')
-    ->where('contents.status_id',1)
-    ->select('kategori as name', DB::raw('count(category_id) as y'))
-    ->groupBy('kategori')
-    ->get();
-    $vieww = DB::table('views')
-    ->select(DB::raw('DATE_FORMAT(views.viewed_at, "%Y,%m,%d") as x'), DB::raw('count(*) as y'))
-    ->groupBy('x')
-    ->get();
-
-//KODE DSS DIMULAI DARI SINI
     //Declare
         $statusArtikel = "Normal";
         $statusViewer = "Normal";
@@ -44,6 +21,34 @@ class bnpbController extends Controller
         $endDate = new \DateTime(Date('Y-m-d', strtotime('+0 days')));
         $interval = \DateInterval::createFromDateString('1 day');
         $days = new \DatePeriod($startDate, $interval, $endDate);
+
+    $post = DB::table('contents')->count();
+    $publish = content::where('status_id',1)->count();
+    $archive = content::where('status_id',0)->count();
+    $trash = content::where('status_id',2)->count();
+    $viewer = DB::table('views')->count();
+    $user = DB::table('users')->count();
+
+    $label = DB::table('contents')
+    ->join('categories', 'contents.category_id','=','categories.id')
+    ->where('contents.status_id',1)
+    ->select('kategori as name', DB::raw('count(category_id) as y'))
+    ->groupBy('kategori')
+    ->get();
+    $tanggalView = array();
+    foreach ($days as $day) {
+    $tanggalView[] = $day->format("d/m/Y");
+    }
+    $contentviewer = DB::table('contents')
+    ->join('views', 'contents.id','=','views.viewable_id')
+    ->join('categories', 'contents.category_id','=','categories.id')
+    ->where('contents.status_id',1)
+    ->select('title', 'kategori', DB::raw('count(viewable_id) as viewer'))
+    ->groupBy('kategori')
+    ->get();
+
+
+//KODE DSS DIMULAI DARI SINI
 
     //Regresi Viewer
         $totalView = array(); $jumlahView=0; $i=0;
@@ -61,7 +66,7 @@ class bnpbController extends Controller
         }
         $prediksiView = $totalView[0];
         for($j=1; $j<sizeof($totalView); $j++){
-          $prediksiView = floor(abs($prediksiView - $totalView[$j] /2));
+          $prediksiView = floor(abs($prediksiView - $totalView[$j])/2);
         }
         $viewToday = DB::table('views')
         ->select(DB::raw('count(*) as total'))
@@ -70,7 +75,7 @@ class bnpbController extends Controller
         ->get();
         $viewToday = $viewToday->count();
 
-        if($viewToday < $prediksiView) $statusViewer = "Penurunan";
+        if($viewToday <= $prediksiView) $statusViewer = "Penurunan";
         elseif($viewToday > $prediksiView) $statusViewer = "Kenaikan";
 
     //Regresi Artikel
@@ -100,7 +105,7 @@ class bnpbController extends Controller
         ->get();
         $artikelToday = $artikelToday->count();
 
-        if($artikelToday < $prediksiArtikel) $statusArtikel = "Kurang";
+        if($artikelToday <= $prediksiArtikel) $statusArtikel = "Kurang";
         elseif($artikelToday > $prediksiArtikel) $statusArtikel = "Berlebih";
 
     //Membuat Keputusan
@@ -109,69 +114,58 @@ class bnpbController extends Controller
         elseif($statusViewer == "Kenaikan" && $statusArtikel == "Berlebih") $keputusan = "Butuh Tambahan Artikel Segera";
         elseif($statusViewer == "Penurunan" && $statusArtikel == "Kurang") $keputusan = "Evaluasi Artikel dan Kontributor";
 
+
 //MENGHITUNG NILAI FUZZY DIMULAI DARI SINI
     //Variabel Permintaan
-        $requestX = 5;
+        $requestX = $jumlahView/$jumlahArtikel;
 
-        if($requestX <= 4) {$reqArtikel_Kurang = 1;}
-        elseif($requestX > 4 && $requestX <12) {$reqArtikel_Kurang = (12-$requestX)/8;}
-        elseif($requestX >= 12) {$reqArtikel_Kurang = 0;}
-        $reqArtikel_Kurang = 7/8;//Data Sementara
+        if($requestX <= 1) {$reqArtikel_Kurang = 1;}
+        elseif($requestX > 1 && $requestX <8) {$reqArtikel_Kurang = (8-$requestX)/7;}
+        elseif($requestX >= 4) {$reqArtikel_Kurang = 0;}
 
-        if($requestX <= 4) {$reqArtikel_Berlebih = 0;}
-        elseif($requestX > 4 && $requestX < 12) {$reqArtikel_Berlebih = ($requestX-4)/8;}
-        elseif($requestX >= 12) {$reqArtikel_Berlebih = 1;}
-        $reqArtikel_Berlebih = 1/8;//Data Sementara
+        if($requestX <= 1) {$reqArtikel_Berlebih = 0;}
+        elseif($requestX > 1 && $requestX < 8) {$reqArtikel_Berlebih = ($requestX-1)/7;}
+        elseif($requestX >= 8) {$reqArtikel_Berlebih = 1;}
 
     //Variabel Persediaan
-        $requestY = 10;
+        $requestY = $jumlahArtikel/$jumlahView;
 
-        if($requestY <= 4) {$reqArtikel_Penurunan = 1;}
-        elseif($requestY > 4 && $requestY < $post) {$reqArtikel_Penurunan = ($post-$jumlahArtikel)/$post-4;}
-        elseif($requestY >= $post) {$reqArtikel_Penurunan = 0;}
-        $reqArtikel_Penurunan = 4/10;//Data Sementara
+        if($requestY <= 1) {$reqArtikel_Penurunan = 1;}
+        elseif($requestY > 1 && $requestY < $jumlahArtikel) {$reqArtikel_Penurunan = ($jumlahArtikel-$requestY)/$jumlahArtikel-1;}
+        elseif($requestY >= $jumlahArtikel) {$reqArtikel_Penurunan = 0;}
 
-        if($requestY <= 4) {$reqArtikel_Kenaikan = 0;}
-        elseif($requestY > 4 && $requestY <12) {$reqArtikel_Kenaikan = ($jumlahArtikel-4)/$post-4;}
-        elseif($requestY >= 12) {$reqArtikel_Kenaikan = 1;}
-        $reqArtikel_Kenaikan = 6/10;//Data Sementara
+        if($requestY <= 1) {$reqArtikel_Kenaikan = 0;}
+        elseif($requestY > 1 && $requestY < $jumlahArtikel) {$reqArtikel_Kenaikan = ($requestY-1)/$jumlahArtikel-1;}
+        elseif($requestY >= 8) {$reqArtikel_Kenaikan = 1;}
 
     //Variabel Keputusan
         $r1 = min($reqArtikel_Kurang, $reqArtikel_Kenaikan);
-        $z1 = -1*($r1*8 - 12);
-        if($z1 <= 4) $z1 = 1;
-        elseif($z1 > 4 && $z1 < 12) $z1 = -1*($r1*8 - 12);
-        elseif($z1 >= 12) $z1 = 0;
-        $r1=6/10; $z1=7.2;//Data Sementara
+        $z1 = 12 - (8 * $r1);
+        if($z1 <= 4) {$z1 = 1;}
+        elseif($z1 > 4 && $z1 < 12) {$z1 = $z1;}
+        elseif($z1 >= 12) {$z1 = 0;}
 
         $r2 = min($reqArtikel_Kurang, $reqArtikel_Penurunan);
-        $z2 = -1*($r2*8 - 12);
-        if($z2 <= 4) $z2 = 1;
-        elseif($z2 > 4 && $z2 < 12) $z2 = -1*($r2*8 - 12);
-        elseif($z2 >= 12) $z2 = 0;
-        $r2=4/10; $z2=8.8;//Data Sementara
+        $z2 = 12 - (8 * $r2);
+        if($z2 <= 4) {$z2 = 1;}
+        elseif($z2 > 4 && $z2 < 12) {$z2 = $z2;}
+        elseif($z2 >= 12) {$z2 = 0;}
 
         $r3 = min($reqArtikel_Berlebih, $reqArtikel_Kenaikan);
-        $z3 = ($r3*8) - 4;
+        $z3 = (8 * $r3) + 4;
         if($z3 <= 4) $z3 = 0;
-        elseif($z3 > 4 && $z3 < 12) $z3 = ($r3*8) - 4;
+        elseif($z3 > 4 && $z3 < 12) $z3 = $z3;
         elseif($z3 >= 12) $z3 = 1;
-        $r3=1/8; $z3=0;//Data Sementara
 
         $r4 = min($reqArtikel_Berlebih, $reqArtikel_Penurunan);
-        $z4 = ($r4*8) - 4;
+        $z4 = (8 * $r3) + 4;
         if($z4 <= 4) $z4 = 0;
-        elseif($z4 > 4 && $z4 < 12) $z1 = ($r4*8) - 4;
+        elseif($z4 > 4 && $z4 < 12) $z4 = $z4;
         elseif($z4 >= 12) $z4 = 1;
-        $r4=1/8; $z4=0;//Data Sementara
-
 
         $z = ($r1*$z1 + $r2*$z2 + $r3*$z3 + $r4*$z4) / ($r1 + $r2 + $r3 + $r4);
 
-
-
-
-    return view('dashboard.BNPB.index', compact('archive','post','trash','viewer','label','contentviewer','vieww','keputusan','statusViewer','statusArtikel','z'));
+    return view('dashboard.BNPB.index', compact('post','archive','publish','trash','viewer','user','label','tanggalView','contentviewer','keputusan','statusViewer','statusArtikel','z','totalView'));
   }
 
   // Kontributor

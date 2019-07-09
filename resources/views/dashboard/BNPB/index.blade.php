@@ -23,24 +23,11 @@
         <div class="featured card card-stats">
           <div class="card-header">
             <div class="card-icon">
-              <img src="{{asset('/assets/img/checking.svg')}}">
+              <img src="{{asset('/assets/img/blog.svg')}}">
             </div>
             <div class="detail text-center">
-              <p class="card-category">Archive</p>
-              <h3 class="card-title">{{$archive}}</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12">
-        <div class="featured card card-stats">
-          <div class="card-header">
-            <div class="card-icon">
-              <img src="{{asset('/assets/img/recycle-bin.svg')}}">
-            </div>
-            <div class="detail text-center">
-              <p class="card-category">Trash</p>
-              <h3 class="card-title">{{$trash}}</h3>
+              <p class="card-category">Published Posts</p>
+              <h3 class="card-title">{{$publish}}</h3>
             </div>
           </div>
         </div>
@@ -52,7 +39,20 @@
               <img src="{{asset('/assets/img/user.svg')}}">
             </div>
             <div class="detail text-center">
-              <p class="card-category">Total Pembaca</p>
+              <p class="card-category">Contributors</p>
+              <h3 class="card-title">{{$user}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="featured card card-stats">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="{{asset('/assets/img/checking.svg')}}">
+            </div>
+            <div class="detail text-center">
+              <p class="card-category">Total Views</p>
               <h3 class="card-title">{{$viewer}}</h3>
             </div>
           </div>
@@ -65,44 +65,17 @@
               <img src="{{asset('/assets/img/tag.svg')}}">
             </div>
             <div class="detail text-center">
-              <p class="card-category">Tingkat Kesehatan Artikel</p>
+              <p class="card-category">Tingkat Kesehatan Sistem</p>
               <h3 class="card-title">
                 Terjadi {{$statusViewer}} jumlah pembaca dan ketersediaan Artikel yang {{$statusArtikel}}.
                 <br>Disarankan untuk {{$keputusan}}.
-                <h6>Publish {{round($z)}} Artikel lagi untuk memenuhi target bulan ini.</h6>
+                <h6>Publish ± {{round($z)}} Artikel lagi untuk memenuhi target bulan ini.</h6>
               </h3>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header card-header-warning">
-              <h4 class="card-title ">Total Artikel Berdasarkan Jenis Bencana</h4>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table id="post" class="table table-striped table-bordered">
-
-                  <body>
-                    <script src="https://code.highcharts.com/highcharts.js"></script>
-                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-                    <div id="chart1" style="width: 100%; height: 400px; margin: 0 auto;"></div>
-                  </body>
-
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="card">
@@ -111,7 +84,7 @@
               <div class="nav-tabs-wrapper">
                 <ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#posts" data-toggle="tab">
+                    <a class="nav-link active" data-toggle="tab">
                       <i class="material-icons">border_color</i> Total Artikel Berdasarkan Jenis Bencana
                       <div class="ripple-container"></div>
                     </a>
@@ -135,7 +108,6 @@
                   <a href="{{url('/bnpb/posts')}}">See All Posts</a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -147,8 +119,8 @@
               <div class="nav-tabs-wrapper">
                 <ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
-                    <a class="nav-link" href="#archive" data-toggle="tab">
-                      <i class="material-icons">book</i> Viewer Counter per Bulan
+                    <a class="nav-link active" data-toggle="tab">
+                      <i class="material-icons">book</i> Jumlah Pembaca per Hari dalam Sebulan Terakhir
                       <div class="ripple-container"></div>
                     </a>
                   </li>
@@ -159,23 +131,28 @@
           <div class="card-body">
             <div class="tab-content">
               <div class="tab-pane active" id="archive">
+                <table class="table">
 
-                <!-- <form action="" method="get">
-                <div class="row">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" name="date_filter" id="date_filter"/>
-                    </div>
-                    <div class="col-md-8">
-                        <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" />
-                    </div>
+                  <!-- <form action="" method="get">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <input type="text" class="form-control" name="date_filter" id="date_filter"/>
+                      </div>
+                      <div class="col-md-8">
+                          <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" />
+                      </div>
+                  </div>
+                  </form> -->
+
+                  <script src="https://code.highcharts.com/highcharts.js"></script>
+                  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                  <div id="chart2" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+
+                </table>
+                <div class="more">
+                  <a href="{{url('/bnpb/posts')}}">See All Posts</a>
                 </div>
-                </form> -->
-
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                <script src="https://code.highcharts.com/modules/export-data.js"></script>
-                <div id="chartContainer" style="width: 100%; height: 400px; margin: 0 auto;"></div>
-
               </div>
             </div>
           </div>
@@ -188,8 +165,8 @@
               <div class="nav-tabs-wrapper">
                 <ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
-                    <a class="nav-link" href="#archive" data-toggle="tab">
-                      <i class="material-icons">book</i> Popular Article
+                    <a class="nav-link active" data-toggle="tab">
+                      <i class="material-icons">book</i> Artikel dengan Jumlah Pembaca Terbanyak
                       <div class="ripple-container"></div>
                     </a>
                   </li>
@@ -200,7 +177,6 @@
           <div class="card-body">
             <div class="tab-content">
               <div class="tab-pane active" id="archive">
-
                 <table id="post" class="table table-striped table-bordered">
                   <thead class="text-primary">
                     <th>
@@ -229,7 +205,6 @@
                     @endforeach
                   </tbody>
                 </table>
-
               </div>
             </div>
           </div>
@@ -238,15 +213,6 @@
     </div>
   </div>
 </div>
-
-<?php
-foreach ($vieww as $queryy) {$dataLabell[]=$queryy;}
-?>
-
-<script src="{{asset('/assets/js/highcharts.js')}}"></script>
-<script src="{{asset('/assets/js/export-data.js')}}"></script>
-<script src="{{asset('/assets/js/exporting.js')}}"></script>
-
 
 <script>
   Highcharts.chart('chart1', {
@@ -285,54 +251,53 @@ foreach ($vieww as $queryy) {$dataLabell[]=$queryy;}
           data: <?php echo json_encode($label, JSON_NUMERIC_CHECK); ?>
       }]
   });
-  </script>
+</script>
+
 <script>
-window.onload = function () {
-
-var chart = new CanvasJS.Chart("chartContainer", {
- animationEnabled: true,
- title:{
-   text: ""
- },
- axisX:{
-   valueFormatString: "DD MMM",
- },
- axisY: {
-   title: "Jumlah page view",
-   includeZero: false,
-   scaleBreaks: {
-     autoCalculate: true
-   }
- },
- data: [{
-   type: "line",
-   xValueFormatString: "DD MMM",
-   color: "#F08080",
-   dataPoints: [
-        @foreach($vieww as $con)
-
-          { x: new Date({{ $con -> x }}), y:{{ $con -> y }}  },
-
-        @endforeach
-   ]
- }]
+Highcharts.chart('chart2', {
+    chart: {
+        type: 'spline',
+        style: {
+          fontFamily: 'Trebuchet MS, Arial'
+        }
+    },
+    title: {
+        text: 'Jumlah Pembaca per Hari dalam Sebulan Terakhir',
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+    },
+    xAxis: {
+        type: "date",
+        tickInterval: 1,
+        categories:
+        <?php
+          echo json_encode($tanggalView);
+        ?>,
+    },
+    yAxis: {
+        tickInterval: 5,
+        title: {
+            text: 'Pembaca'
+        },
+    },
+    tooltip: {
+          pointFormat: '<b>{point.y} Pembaca</b>'
+    },
+    series: [{
+        connectNulls: true,
+        showInLegend: false,
+        data:
+        <?php
+          echo json_encode($totalView);
+        ?>,
+    }]
 });
-chart.render();
-
-}
 </script>
-<script src="{{asset('/assets/js/canvasjs.min.js')}}"></script>
-
-<script type="text/javascript">
-$(function(){
-    $('#date_filter').datepicker({
-       format: "dd.mm.yyyy",
-       todayBtn: "linked",
-       language: "de"
-    });
-});
-</script>
-
-
-
 @endsection
